@@ -2,11 +2,11 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:notes_for_me/models/note.dart';
-import 'package:notes_for_me/services/shared_preferences_service.dart';
+import 'package:notes_for_me/services/locas_storage_service.dart';
 
 class NoteViewModel extends ChangeNotifier {
   List<Note> _notes = [];
-  SharedPreferencesService _sharedPreferencesService;
+  LocalStorageService _sharedPreferencesService;
 
   List<Note> get notes => _notes;
 

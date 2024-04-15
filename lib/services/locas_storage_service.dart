@@ -1,9 +1,9 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-class SharedPreferencesService {
+class LocalStorageService {
   final SharedPreferences _preferences;
 
-  SharedPreferencesService(this._preferences);
+  LocalStorageService(this._preferences);
 
   List<String>? get notes => _preferences.getStringList('notes');
 
