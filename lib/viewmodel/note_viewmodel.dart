@@ -6,16 +6,16 @@ import 'package:notes_for_me/services/locas_storage_service.dart';
 
 class NoteViewModel extends ChangeNotifier {
   List<Note> _notes = [];
-  LocalStorageService _sharedPreferencesService;
+  LocalStorageService _localStorageService;
 
   List<Note> get notes => _notes;
 
-  NoteViewModel(this._sharedPreferencesService) {
+  NoteViewModel(this._localStorageService) {
     _loadNotes();
   }
 
   Future<void> _loadNotes() async {
-    final notesData = _sharedPreferencesService.notes;
+    final notesData = _localStorageService.notes;
     if (notesData != null) {
       _notes =
           notesData.map((json) => Note.fromJson(jsonDecode(json))).toList();
@@ -25,7 +25,7 @@ class NoteViewModel extends ChangeNotifier {
 
   Future<void> _saveNotes() async {
     final notesData = _notes.map((note) => jsonEncode(note.toJson())).toList();
-    await _sharedPreferencesService.saveNotes(notesData);
+    await _localStorageService.saveNotes(notesData);
   }
 
   void addNote(Note note) {
