@@ -1,13 +1,13 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalStorageService {
-  final SharedPreferences _preferences;
+  final SharedPreferences _prefs;
 
-  LocalStorageService(this._preferences);
+  LocalStorageService(this._prefs);
 
-  List<String>? get notes => _preferences.getStringList('notes');
+  List<String>? get notes => _prefs.getStringList('notes');
 
   Future<void> saveNotes(List<String> notes) async {
-    await _preferences.setStringList('notes', notes);
+    await _prefs.setStringList('notes', notes);
   }
 }

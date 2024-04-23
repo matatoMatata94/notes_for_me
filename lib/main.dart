@@ -5,19 +5,16 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Future<SharedPreferences> prefs = SharedPreferences.getInstance();
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  Future<LocalStorageService> _getLocalStorageService() async {
-    final prefs = await SharedPreferences.getInstance();
-    return LocalStorageService(prefs);
-  }
-
   @override
   Widget build(BuildContext context) {
     return FutureProvider(
-      create: (_) => _getLocalStorageService(),
+      create: (_) => ,
       initialData: null,
       child: MaterialApp(
         title: 'Notes App',
