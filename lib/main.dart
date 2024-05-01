@@ -14,12 +14,15 @@ void main() async {
       providers: [
         FutureProvider<LocalStorageService>.value(
           value: Future.value(localStorageService),
+          initialData: localStorageService,
         ),
         ChangeNotifierProvider<NoteViewModel>(
           create: (_) => NoteViewModel(localStorageService),
         ),
       ],
-      child: MyApp(),
+      child: MyApp(
+        localStorageService: localStorageService,
+      ),
     ),
   );
 }
