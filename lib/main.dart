@@ -38,6 +38,7 @@ class MyApp extends StatelessWidget {
       create: (_) => Future.value(localStorageService),
       initialData: localStorageService,
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Notes App',
         theme: ThemeData(
           primarySwatch: Colors.blue,
